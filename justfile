@@ -12,7 +12,15 @@ build:
     pdm build
 
 example:
-    for p in $(ls examples/*/main.py);do pdm run python $p; done
+    #!/usr/bin/env bash
+    set -euo pipefail
+
+    for p in $(ls examples/*/main.py);
+    do
+        echo " * $p * "
+        pdm run python $p
+        echo ""
+    done
 
 fmt:
     just --fmt --unstable
