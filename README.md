@@ -1,4 +1,4 @@
-# Configure Python logging from environment variables with pydantic (settings) Model [![PyPI](https://img.shields.io/pypi/v/pydantic-loggings/)](https://pypi.org/project/pydantic-loggings/)
+# Configure Python logging from environment variables with pydantic (settings) Model [![PyPI](https://img.shields.io/pypi/v/pydantic-loggings)](https://pypi.org/project/pydantic-loggings/)
 
 ## [Installation](https://pypi.org/project/pydantic-loggings/)
 
