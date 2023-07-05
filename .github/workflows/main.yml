@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    if: false
+    # if: false
 
     strategy:
       fail-fast: false
@@ -41,8 +41,8 @@ jobs:
   release:
     # if: false
     if: ${{ github.ref == 'refs/heads/master' }}
-    # needs:
-    #   - test
+    needs:
+      - test
 
     runs-on: ubuntu-latest
 
