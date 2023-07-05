@@ -1,0 +1,64 @@
+name: main
+
+on:
+  pull_request_review:
+  push:
+    branches:
+      - "*"
+
+jobs:
+  test:
+    if: false
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        py_ver:
+          - "3.11"
+          - "3.10"
+          - "3.9"
+          - "3.8"
+    runs-on: ${{ matrix.os }}
+
+    defaults:
+      run:
+        working-directory: ./
+    steps:
+      - run: |
+          wget -qO - 'https://proget.makedeb.org/debian-feeds/prebuilt-mpr.pub' | gpg --dearmor | sudo tee /usr/share/keyrings/prebuilt-mpr-archive-keyring.gpg 1> /dev/null
+          echo "deb [arch=amd64 signed-by=/usr/share/keyrings/prebuilt-mpr-archive-keyring.gpg] https://proget.makedeb.org prebuilt-mpr $(lsb_release -cs)" | sudo tee /etc/apt/sources.list.d/prebuilt-mpr.list
+          sudo apt-get update
+          sudo apt-get install -y just
+
+      - uses: actions/checkout@v3
+
+      - uses: pdm-project/setup-pdm@v3
+        with:
+          python-version: ${{ matrix.py_ver }}
+      - run: just ci
+
+  release:
+    # if: false
+    if: ${{ github.ref == 'refs/heads/master' }}
+    # needs:
+    #   - test
+
+    runs-on: ubuntu-latest
+
+    concurrency: release
+    permissions:
+      contents: write
+
+    defaults:
+      run:
+        working-directory: ./
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: python-semantic-release/python-semantic-release@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          repository_username: ${{ secrets.PYPI_USERNAME }}
+          repository_password: ${{ secrets.PYPI_PASSWORD }}
