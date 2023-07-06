@@ -23,9 +23,14 @@ class ModelDumpMixin:
         }
         return dic
 
+    def merge_dump_kwargs(self, **kwargs):
+        dic = dict(ChainMap(self.class_dump_kwargs, kwargs))
+        return dic
+
     def model_dump(self, **kwargs):
         model_dump = getattr(super(), 'model_dump')
-        dic = model_dump(**dict(ChainMap(self.class_dump_kwargs, kwargs)))
+        dump_kwargs = self.merge_dump_kwargs(**kwargs)
+        dic = model_dump(**dump_kwargs)
         return dic
 
 

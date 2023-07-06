@@ -9,20 +9,31 @@ from hypothesis import strategies as st
 from pydantic_loggings import mixins
 from pydantic_settings import BaseSettings
 from pytest_mock.plugin import MockerFixture
+from pydantic import BaseModel
 
 
 class TestNameMixin:
     @pytest.fixture
     def cls_factory(self):
         def _cls(name: str):
-            class C(mixins.NameMixin, BaseSettings):
-                NAME: t.ClassVar[str] = name
+            # C = create_model(
+            #     'C',
+            #     # __base__=(mixins.NameMixin, BaseSettings),
+            #     __cls_kwargs__={'NAME': 'name'},
+            # )
 
+            class C(mixins.NameMixin, BaseModel):
+                NAME: t.ClassVar[str] = name
+                NAME2: int = 1
+
+            print(f'{C = }')
+            print(f'{C.__dict__ = }')
+            exit()
             return C
 
         return _cls
 
-    @given(name=st.text())
+    @given(name=st.text(min_size=1))
     @settings(suppress_health_check=[HealthCheck.function_scoped_fixture])
     def test_namemixin(
         self,
@@ -46,12 +57,13 @@ class TestNameMixin:
 
 
 class TestModelDumpMixin:
+    class C(mixins.ModelDumpMixin, BaseSettings):
+        a: int = 0
+        b: int = 0
+
     @pytest.fixture
     def cls(self):
-        class C(mixins.ModelDumpMixin, BaseSettings):
-            ...
-
-        return C
+        return self.C
 
     @pytest.fixture
     def obj(self, cls):
@@ -86,16 +98,49 @@ class TestModelDumpMixin:
             )
         assert set(cls_attrs) == set(obj.class_dump_kwargs.keys())
 
-    def test_model_dump(
+    @pytest.mark.parametrize(
+        ('a', 'b', 'ab'),
+        [
+            ({}, {}, {}),
+            ({'a': 1}, {}, {'a': 1}),
+            ({}, {'b': 2}, {'b': 2}),
+            ({'a': 1}, {'b': 2}, {'a': 1, 'b': 2}),
+            ({'a': 1}, {'a': 2}, {'a': 1}),
+            ({'a': 1, 'b': 2}, {'a': 2}, {'a': 1, 'b': 2}),
+            ({'a': 1}, {'a': 2, 'b': 2}, {'a': 1, 'b': 2}),
+        ],
+    )
+    def test_merge_dump_kwargs(
+        self,
+        cls: t.Type[mixins.ModelDumpMixin],
+        obj: mixins.ModelDumpMixin,
+        mocker: MockerFixture,
+        a: dict,
+        b: dict,
+        ab: dict,
+    ):
+        mocker.patch.object(target=cls, attribute='class_dump_kwargs', new=a)
+        assert ab == obj.merge_dump_kwargs(**b)
+
+    def test_call_model_dump(
         self,
         cls: t.Type[mixins.ModelDumpMixin],
         obj: mixins.ModelDumpMixin,
         mocker: MockerFixture,
     ):
-        # TODO
         model_dump = mocker.patch.object(target=cls, attribute='model_dump')
+        model_dump.assert_not_called()
         obj.model_dump()
         model_dump.assert_called_once()
+
+    # @pytest.mark.parametrize()
+    def test_model_dump(
+        self,
+        cls: t.Type[mixins.ModelDumpMixin],
+        obj: mixins.ModelDumpMixin,
+        testdir: pytest.Testdir,
+    ):
+        print(f'{testdir = }')
 
 
 class TestByAliasModelDumpMixin:
