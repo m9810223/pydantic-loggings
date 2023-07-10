@@ -1,7 +1,6 @@
 import json
 import logging
 import typing as t
-import warnings
 from logging.config import DictConfigurator
 
 from pydantic import field_validator
@@ -72,8 +71,6 @@ class Logging(
         return logger_name in ['', 'root', *(self.loggers or {}).keys()]
 
     def get_logger(self, logger_name: str = ''):
-        if not self.is_valid_logger_name(logger_name):
-            warnings.warn(f'Logger: `{logger_name}` is not found.')
         return logging.getLogger(name=logger_name)
 
     def configure_and_get_logger(self, logger_name: str = ''):
