@@ -67,10 +67,10 @@ class Logging(
     def configure(self):
         self.configurator(self.configuration).configure()
 
-    def is_valid_logger_name(self, logger_name: str):
+    def is_valid_logger_name(self, logger_name: str, /):
         return logger_name in ['', 'root', *(self.loggers or {}).keys()]
 
-    def get_logger(self, logger_name: str = ''):
+    def get_logger(self, logger_name: str = '', /):
         return logging.getLogger(name=logger_name)
 
     def configure_and_get_logger(self, logger_name: str = ''):
