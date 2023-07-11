@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.23.0 (2023-07-11)
+
+### Feature
+
+* Set level in `configure_and_get_logger` ([`a03df25`](https://github.com/m9810223/pydantic-loggings/commit/a03df25bb0b585f1255d375fb722231254796e24))
+
 ## v0.22.0 (2023-07-11)
 
 ### Feature
