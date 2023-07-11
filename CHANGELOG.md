@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.22.0 (2023-07-11)
+
+### Feature
+
+* Move handler to root ([`3b29328`](https://github.com/m9810223/pydantic-loggings/commit/3b2932868cac4b019d2ca3fe61a03dc0cd427ece))
+
 ## v0.21.2 (2023-07-10)
 
 ### Fix
