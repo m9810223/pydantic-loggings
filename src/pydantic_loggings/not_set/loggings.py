@@ -73,6 +73,15 @@ class Logging(
     def get_logger(self, logger_name: str = '', /):
         return logging.getLogger(name=logger_name)
 
-    def configure_and_get_logger(self, logger_name: str = ''):
+    def configure_and_get_logger(
+        self,
+        logger_name: str = '',
+        /,
+        *,
+        level: t.Optional[t.Union[int, str]] = None,
+    ):
         self.configure()
-        return self.get_logger(logger_name=logger_name)
+        logger = self.get_logger(logger_name)
+        if level is not None:
+            logger.setLevel(level=level)
+        return logger
