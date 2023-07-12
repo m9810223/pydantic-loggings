@@ -2,6 +2,17 @@
 
 <!--next-version-placeholder-->
 
+## v1.0.0 (2023-07-12)
+
+### Feature
+
+* Rename api ([`5541eff`](https://github.com/m9810223/pydantic-loggings/commit/5541effcb759d9640191052745e5c6c91672a061))
+* Rename api ([`1966497`](https://github.com/m9810223/pydantic-loggings/commit/1966497cc30f05ee1c235647bf5eaa4553a777c8))
+
+### Breaking
+
+* `Logging.configure_and_get_logger` -> `Logging.get_logger` ([`1966497`](https://github.com/m9810223/pydantic-loggings/commit/1966497cc30f05ee1c235647bf5eaa4553a777c8))
+
 ## v0.23.0 (2023-07-11)
 
 ### Feature
