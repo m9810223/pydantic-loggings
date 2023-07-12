@@ -70,18 +70,23 @@ class Logging(
     def is_valid_logger_name(self, logger_name: str, /):
         return logger_name in ['', 'root', *(self.loggers or {}).keys()]
 
-    def get_logger(self, logger_name: str = '', /):
-        return logging.getLogger(name=logger_name)
-
-    def configure_and_get_logger(
+    def get_logger(
         self,
         logger_name: str = '',
         /,
         *,
         level: t.Optional[t.Union[int, str]] = None,
+        force_level: bool = False,
+        configure: bool = True,
     ):
-        self.configure()
-        logger = self.get_logger(logger_name)
+        if configure:
+            self.configure()
+        logger = logging.getLogger(name=logger_name)
         if level is not None:
-            logger.setLevel(level=level)
+            if force_level is True:
+                logger.setLevel(level=level)
+            elif logging.NOTSET == logger.level:
+                logger.setLevel(level=level)
+            elif logging.NOTSET == logger.getEffectiveLevel():
+                logger.setLevel(level=level)
         return logger
