@@ -2,6 +2,16 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.0 (2023-07-14)
+
+### Feature
+
+* Do not configure by default ([`8413346`](https://github.com/m9810223/pydantic-loggings/commit/841334643874da212c7366d8e323a7b7b6cb1479))
+
+### Documentation
+
+* **README.md:** Do not configure by default ([`6fd04bb`](https://github.com/m9810223/pydantic-loggings/commit/6fd04bbee22d769db8cfac1fa261cc649f608651))
+
 ## v1.0.0 (2023-07-12)
 
 ### Feature

@@ -5,7 +5,7 @@ Source = "https://github.com/m9810223/pydantic-logging-settings"
 [project]
 name = "pydantic-loggings"
 description = "Configure 🎁 Your 🤗 Python 🐍 Logging 📝"
-version = "1.0.0"
+version = "1.1.0"
 authors = [
   { name = "m9810223", email = "m9810223@gmail.com" },
 ]
