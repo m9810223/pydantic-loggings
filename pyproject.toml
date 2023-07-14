@@ -5,12 +5,13 @@ Source = "https://github.com/m9810223/pydantic-logging-settings"
 [project]
 name = "pydantic-loggings"
 description = "Configure 🎁 Your 🤗 Python 🐍 Logging 📝"
-version = "0.23.0"
+version = "1.0.0"
 authors = [
   { name = "m9810223", email = "m9810223@gmail.com" },
 ]
 requires-python = ">=3.9"
 readme = "README.md"
+
 classifiers = [
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.10",
