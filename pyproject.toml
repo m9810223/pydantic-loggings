@@ -34,6 +34,7 @@ Source = "https://github.com/m9810223/pydantic-logging-settings"
 build_command = "pip install pdm && pdm build"
 # upload_to_repository = false
 version_toml = "pyproject.toml:project.version"
+changelog_file = "misc/CHANGELOG.md"
 
 [tool.pdm.scripts]
 debug = { composite = ["dev"], env = { DEBUG = '1' } }
