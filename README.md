@@ -1,12 +1,16 @@
-# Configure Python logging from environment variables with pydantic (settings) Model [![PyPI](https://img.shields.io/pypi/v/pydantic-loggings)](https://pypi.org/project/pydantic-loggings/)
+# Configure 🎁 Your 🤗 Python 🐍 Logging 📝
 
-## [Installation](https://pypi.org/project/pydantic-loggings/)
+[![PyPI](https://img.shields.io/pypi/v/pydantic-loggings)](https://pypi.org/project/pydantic-loggings/)
+
+## Installation
 
 ```shell
 pip install pydantic-loggings
 ```
 
-## [Usage](./examples)
+## Usage
+
+- [examples](./examples)
 
 ### out of the box
 
@@ -25,7 +29,7 @@ logger.warning('warning')
 # 01-01 00:00:00 WARNING warning
 ```
 
-### default logging
+### Default Logging
 
 ```py
 from pydantic_loggings.not_set import Logging
@@ -40,7 +44,7 @@ logger.warning('warning')
 # warning
 ```
 
-### config from env file
+### Configure from Environment
 
 ```py
 from pathlib import Path
@@ -85,7 +89,7 @@ log__loggers__root__handlers='["my_handler"]'
 # log__loggers='{"root":{"level":"DEBUG","handlers":["my_handler"]}}'
 ```
 
-### `Logging`s
+### Loggings
 
 - not_set
 - base
