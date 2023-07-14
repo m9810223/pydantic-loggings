@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v1.2.0 (2023-07-14)
+
+### Feature
+
+* Release ([`3d52e4f`](https://github.com/m9810223/pydantic-loggings/commit/3d52e4fafb6fe255ac43a531213f52c12ce24575))
+
 ## v1.1.0 (2023-07-14)
 
 ### Feature
