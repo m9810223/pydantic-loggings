@@ -67,9 +67,6 @@ class Logging(
     def configure(self):
         self.configurator(self.configuration).configure()
 
-    def is_valid_logger_name(self, logger_name: str, /):
-        return logger_name in ['', 'root', *(self.loggers or {}).keys()]
-
     def get_logger(
         self,
         logger_name: str = '',
@@ -77,13 +74,13 @@ class Logging(
         *,
         level: t.Optional[t.Union[int, str]] = None,
         force_level: bool = False,
-        configure: bool = True,
+        configure: bool = False,
     ):
         if configure:
             self.configure()
         logger = logging.getLogger(name=logger_name)
         if level is not None:
-            if force_level is True:
+            if force_level:
                 logger.setLevel(level=level)
             elif logging.NOTSET == logger.level:
                 logger.setLevel(level=level)
