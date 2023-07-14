@@ -1,6 +1,6 @@
 [project.urls]
-Homepage = "https://github.com/m9810223/pydantic-logging-settings"
-Source = "https://github.com/m9810223/pydantic-logging-settings"
+Homepage = "https://github.com/m9810223/pydantic-loggings"
+Source = "https://github.com/m9810223/pydantic-loggings"
 
 [project]
 name = "pydantic-loggings"
