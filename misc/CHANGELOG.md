@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v1.3.0 (2023-07-15)
+
+### Feature
+
+* Add types ([`e001b0c`](https://github.com/m9810223/pydantic-loggings/commit/e001b0c3969b4b161d3218b4c1b8e422b2751cf7))
+
 ## v1.2.0 (2023-07-14)
 
 ### Feature
