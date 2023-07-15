@@ -9,6 +9,8 @@ from pydantic_settings import BaseSettings
 from pydantic_settings import SettingsConfigDict
 
 from .. import mixins
+from ..types_ import OptionalModel
+from ..types_ import OptionalModelDict
 from .filters import Filter
 from .formatters import Formatter
 from .handlers import Handler
@@ -30,11 +32,11 @@ class Logging(
     # https://docs.python.org/3/library/logging.config.html#configuration-dictionary-schema
     # https://docs.python.org/3/howto/logging-cookbook.html#an-example-dictionary-based-configuration
     version: int = 1  # ok
-    formatters: t.Optional[dict[str, Formatter]] = None
-    filters: t.Optional[dict[str, Filter]] = None
-    handlers: t.Optional[dict[str, Handler]] = None
-    loggers: t.Optional[dict[str, Logger]] = None
-    root: t.Optional[Logger] = None
+    formatters: OptionalModelDict[Formatter] = None
+    filters: OptionalModelDict[Filter] = None
+    handlers: OptionalModelDict[Handler] = None
+    loggers: OptionalModelDict[Logger] = None
+    root: OptionalModel[Logger] = None
     incremental: t.Optional[bool] = None
     disable_existing_loggers: t.Optional[bool] = None
 

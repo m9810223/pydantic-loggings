@@ -1,8 +1,8 @@
-import typing as t
-
 from pydantic import Field
 
 from .. import not_set
+from ..types_ import OptionalModel
+from ..types_ import OptionalModelDict
 from ..types_ import StrList
 from .filters import Filter
 from .formatters import Formatter
@@ -11,10 +11,8 @@ from .loggers import Logger
 
 
 class Logging(not_set.Logging):
-    formatters: t.Optional[dict[str, Formatter]] = Field(
-        default_factory=Formatter.default
-    )
-    filters: t.Optional[dict[str, Filter]] = None
-    handlers: t.Optional[dict[str, Handler]] = Field(default_factory=Handler.default)
-    loggers: t.Optional[dict[str, Logger]] = None
-    root: t.Optional[Logger] = Logger(handlers=StrList(root=[Handler.NAME]))
+    formatters: OptionalModelDict[Formatter] = Field(default_factory=Formatter.default)
+    filters: OptionalModelDict[Filter] = None
+    handlers: OptionalModelDict[Handler] = Field(default_factory=Handler.default)
+    loggers: OptionalModelDict[Logger] = None
+    root: OptionalModel[Logger] = Logger(handlers=StrList(root=[Handler.NAME]))
