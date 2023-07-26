@@ -1,5 +1,20 @@
 # CHANGELOG
 
+
+
+## v1.5.0 (2023-07-26)
+
+### Chore
+
+* chore(pyproject.toml): add optional dependencies ([`5885782`](https://github.com/m9810223/pydantic-loggings/commit/58857823feec0d88542f708a8fc066109449bd96))
+
+* chore: update `.pre-commit-config.yaml` ([`b121cac`](https://github.com/m9810223/pydantic-loggings/commit/b121cacd81a37da15bc0e6c21209b35066ac5d88))
+
+### Feature
+
+* feat: complete rich logging ([`1d71713`](https://github.com/m9810223/pydantic-loggings/commit/1d71713eaea2d2739ba9915262dbc06744094804))
+
+
 ## v1.4.0 (2023-07-17)
 
 ### Feature

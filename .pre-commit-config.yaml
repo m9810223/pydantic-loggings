@@ -43,6 +43,7 @@ repos:
           - --disable=line-length
           - --disable=no-inline-html
           - --disable=no-duplicate-heading
+        exclude: CHANGELOG.md
 
   ### MISC
 
