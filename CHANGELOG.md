@@ -32,13 +32,11 @@
 
 * feat: release ([`a1cd19b`](https://github.com/m9810223/pydantic-loggings/commit/a1cd19bb8a72ade7b0f69355be94852888033e0f))
 
-
 ## v1.3.0 (2023-07-15)
 
 ### Feature
 
 * feat: add types ([`e001b0c`](https://github.com/m9810223/pydantic-loggings/commit/e001b0c3969b4b161d3218b4c1b8e422b2751cf7))
-
 
 ## v1.2.0 (2023-07-14)
 
@@ -53,7 +51,6 @@
 ### Unknown
 
 * chore(pyproject.toml) ([`4ddb019`](https://github.com/m9810223/pydantic-loggings/commit/4ddb0191d3fb1dae7ea7732d1f7f6c25a3e202ca))
-
 
 ## v1.1.0 (2023-07-14)
 
@@ -81,7 +78,6 @@
 
 * style ([`fad428a`](https://github.com/m9810223/pydantic-loggings/commit/fad428a6c23faf1b7e3b11e52022d20db34ca665))
 
-
 ## v1.0.0 (2023-07-12)
 
 ### Breaking
@@ -100,7 +96,6 @@ BREAKING CHANGE: `Logging.configure_and_get_logger` -&gt; `Logging.get_logger` (
 
 * chore(examples) ([`e6b5777`](https://github.com/m9810223/pydantic-loggings/commit/e6b5777ec330f1897df056b7e4447fd26514a57a))
 
-
 ## v0.23.0 (2023-07-11)
 
 ### Chore
@@ -113,13 +108,11 @@ BREAKING CHANGE: `Logging.configure_and_get_logger` -&gt; `Logging.get_logger` (
 
 * feat: set level in `configure_and_get_logger` ([`a03df25`](https://github.com/m9810223/pydantic-loggings/commit/a03df25bb0b585f1255d375fb722231254796e24))
 
-
 ## v0.22.0 (2023-07-11)
 
 ### Feature
 
 * feat: move handler to root ([`3b29328`](https://github.com/m9810223/pydantic-loggings/commit/3b2932868cac4b019d2ca3fe61a03dc0cd427ece))
-
 
 ## v0.21.2 (2023-07-10)
 
@@ -131,7 +124,6 @@ BREAKING CHANGE: `Logging.configure_and_get_logger` -&gt; `Logging.get_logger` (
 
 * fix: remove warning ([`590db8b`](https://github.com/m9810223/pydantic-loggings/commit/590db8be02abefaedfab6f866c01463b69ed259b))
 
-
 ## v0.21.1 (2023-07-05)
 
 ### Chore
@@ -141,7 +133,6 @@ BREAKING CHANGE: `Logging.configure_and_get_logger` -&gt; `Logging.get_logger` (
 ### Fix
 
 * fix(README.md): update readme ([`4dcf318`](https://github.com/m9810223/pydantic-loggings/commit/4dcf3181928938d327c46ab46919f51e5ca3bac1))
-
 
 ## v0.21.0 (2023-07-05)
 
