@@ -2,6 +2,17 @@
 
 
 
+## v1.6.0 (2023-07-26)
+
+### Feature
+
+* feat: release ([`ece3e5e`](https://github.com/m9810223/pydantic-loggings/commit/ece3e5ed8cb06b33f15b4ea2595634728c6da8e0))
+
+### Unknown
+
+* Merge branch &#39;master&#39; of github.com:m9810223/pydantic-loggings ([`eae04e9`](https://github.com/m9810223/pydantic-loggings/commit/eae04e9ff4a5dae55caa540185abf2e1502ea9dd))
+
+
 ## v1.5.0 (2023-07-26)
 
 ### Chore
