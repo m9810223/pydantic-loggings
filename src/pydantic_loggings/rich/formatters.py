@@ -9,7 +9,7 @@ from ..types_ import FormatterStylesType
 class Formatter(not_set.Formatter):
     NAME: t.ClassVar[str] = 'rich'
     format_: t.Optional[str] = Field(
-        default='{asctime} {levelname:>7} {message}',
+        default='{message}',
         alias='format',
     )
     datefmt: t.Optional[str] = '%m-%d %H:%M:%S'

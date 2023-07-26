@@ -3,7 +3,7 @@ default: fmt install test build
 ci: install example test build
 
 install:
-    pdm install
+    pdm install -G=rich
 
 test: install
     pdm run pytest
