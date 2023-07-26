@@ -40,8 +40,7 @@ dev = [
 
 [tool.semantic_release] # https://python-semantic-release.readthedocs.io/en/latest/configuration.html
 build_command = "pip install pdm && pdm build"
-upload_to_repository = true
-upload_to_release = false
+upload_to_vcs_release = false
 version_toml = ["pyproject.toml:project.version"]
 changelog_file = "./misc/CHANGELOG.md"
 
