@@ -2,6 +2,7 @@
 Homepage = "https://github.com/m9810223/pydantic-loggings"
 Source = "https://github.com/m9810223/pydantic-loggings"
 
+
 [project]
 name = "pydantic-loggings"
 description = "Configure 🎁 Your 🤗 Python 🐍 Logging 📝"
@@ -9,7 +10,6 @@ version = "1.4.0"
 authors = [{ name = "m9810223", email = "m9810223@gmail.com" }]
 requires-python = ">=3.9"
 readme = "README.md"
-
 classifiers = [
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.10",
@@ -22,19 +22,10 @@ classifiers = [
   "Framework :: Pydantic :: 2",
   "Environment :: Console",
 ]
-
 dependencies = ["pydantic>=2.0", "pydantic-settings>=2.0"]
 
-[tool.semantic_release] # https://python-semantic-release.readthedocs.io/en/latest/configuration.html
-build_command = "pip install pdm && pdm build"
-upload_to_repository = true
-upload_to_release = false
-version_toml = ["pyproject.toml:project.version"]
-changelog_file = "./misc/CHANGELOG.md"
-
-[tool.pdm.scripts]
-debug = { composite = ["dev"], env = { DEBUG = '1' } }
-dev = "python dev.py"
+[project.optional-dependencies]
+rich = ["rich>=13.4.2"]
 
 [tool.pdm.dev-dependencies]
 dev = [
@@ -44,11 +35,25 @@ dev = [
   "hypothesis>=6.80.0",
   "pytest-xdist>=3.3.1",
   "pytest-mock>=3.11.1",
-  "rich>=13.4.2",
 ]
+
+
+[tool.semantic_release] # https://python-semantic-release.readthedocs.io/en/latest/configuration.html
+build_command = "pip install pdm && pdm build"
+upload_to_repository = true
+upload_to_release = false
+version_toml = ["pyproject.toml:project.version"]
+changelog_file = "./misc/CHANGELOG.md"
+
+
+[tool.pdm.scripts]
+debug = { composite = ["dev"], env = { DEBUG = '1' } }
+dev = "python dev.py"
+
 
 [tool.black] # https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html
 skip-string-normalization = 1
+
 
 [tool.ruff]
 extend-select = [
@@ -70,14 +75,17 @@ ignore = [
 force-single-line = true
 lines-after-imports = 2
 
+
 [tool.mypy]
 ignore_missing_imports = true
+
 
 [tool.pytest.ini_options]
 addopts = "--exitfirst --failed-first -r fEsxXp --disable-warnings --showlocals --tb=short --cov=src --cov-report=term --cov-report=html:./htmlcov"
 # https://docs.pytest.org/en/stable/reference/reference.html
 # https://docs.pytest.org/en/stable/explanation/goodpractices.html
 # https://docs.pytest.org/en/stable/example/pythoncollection.html
+
 
 [tool.coverage.run] # https://coverage.readthedocs.io/en/stable/config.html
 omit = ["__init__.py"]
