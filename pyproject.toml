@@ -6,7 +6,7 @@ Source = "https://github.com/m9810223/pydantic-loggings"
 [project]
 name = "pydantic-loggings"
 description = "Configure 🎁 Your 🤗 Python 🐍 Logging 📝"
-version = "1.4.0"
+version = "1.5.0"
 authors = [{ name = "m9810223", email = "m9810223@gmail.com" }]
 requires-python = ">=3.9"
 readme = "README.md"
