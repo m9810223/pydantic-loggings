@@ -1,6 +1,6 @@
 from pprint import pprint as pprint
 
-from pydantic_loggings.base import Logging as BaseLogging
+from pydantic_loggings.default import Logging as DefaultLogging
 from pydantic_loggings.not_set import Logging as NotSetLogging
 
 
@@ -16,7 +16,7 @@ if __name__ == '__main__':
         not_set_logger.warning('warning')
 
     if 0:
-        base_logger = BaseLogging(
+        base_logger = DefaultLogging(
             # _env_file='.env',  # pyright: ignore [reportGeneralTypeIssues]
         ).get_logger('')
 

@@ -1,8 +1,18 @@
-from pydantic_loggings.not_set import Logging
+import logging
+import logging.config
+
+from mod1 import func1
+from pydantic_loggings.default import Logging
 
 
-logger = Logging().get_logger(configure=True)
+logger = logging.getLogger(__name__)
 
-logger.debug('debug')
-logger.info('info')
-logger.warning('warning')
+if __name__ == '__main__':
+    # TODO: modify Handler
+    # TODO: export configuration
+    Logging(disable_existing_loggers=False).configure()
+    logger.debug('debug')
+    logger.info('info')
+    logger.warning('warning')
+    logger.error('error')
+    func1()

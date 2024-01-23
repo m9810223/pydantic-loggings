@@ -9,7 +9,7 @@ from .formatters import Formatter
 
 
 class Handler(not_set.Handler):
-    NAME: t.ClassVar[str] = 'base'
+    NAME: t.ClassVar[str] = 'default'
     class_: str = Field(default='logging.StreamHandler', alias='()')
     level: t.Optional[str] = utils.get_level_name(logging.DEBUG)
     formatter: t.Optional[str] = Formatter.NAME
